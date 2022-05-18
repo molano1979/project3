@@ -1,4 +1,5 @@
 import React from "react";
+
 import ReactDOM from "react-dom/client";
 import Securitah from "./Securitah";
 import { Auth0Provider } from "@auth0/auth0-react";
