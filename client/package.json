@@ -1,31 +1,34 @@
 {
-  "name": "cardiac-arrest",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@auth0/auth0-react": "^1.10.1",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^13.5.0",
+    "apollo-boost": "^0.4.9",
+    "auth0": "^2.40.0",
+    "auth0-js": "^9.19.0",
+    "env": "^0.0.2",
+    "graphql": "^15.8.0",
     "react": "^18.1.0",
+<<<<<<< HEAD:client/package.json
+    "react-apollo": "^3.1.5",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^5.0.1",
+    "tachyons": "^4.12.0"
+=======
     "react-dom": "^18.1.0",
     "react-json-pretty": "^2.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
+>>>>>>> c760fa86bf4bdc5da368e0c41635f678c3d3e6d6:package.json
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
