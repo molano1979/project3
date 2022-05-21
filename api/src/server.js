@@ -5,7 +5,8 @@ const { find, filter } = require("lodash");
 import { Author, Book } from "./store";
 
 const client = jwksClient({
-  jwksUri: "https://dev-gsexnrfp.us.auth0.com/.well-known/jwks.json",
+  jwksUri:
+    "https://" + process.env.REACT_APP_AUTH0_DOMAIN + "/.well-known/jwks.json",
 });
 
 function getKey(header, cb) {
@@ -16,8 +17,8 @@ function getKey(header, cb) {
 }
 
 const options = {
-  audience: "S8fl9Dk3bWenHMttkiDnywo0CTbyUEtr",
-  issuer: "https://dev-gsexnrfp.us.auth0.com",
+  audience: process.env.REACT_APP_AUTH0_CLIENT_ID,
+  issuer: "https://" + process.env.REACT_APP_AUTH0_DOMAIN,
   algorithms: ["RS256"],
 };
 
