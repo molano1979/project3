@@ -25,11 +25,12 @@ class Nav extends Component {
         <ul className="nav navbar-nav">
           <li>
             {auth.isAuthenticated() ? (
-              <Link to="/search">Search for hills</Link>
+              <Link to="/add">Search for segments</Link>
             ) : (
               ""
             )}
           </li>
+
           <li>
             {auth.isAuthenticated() ? (
               <Link to="/favorites">Favorites</Link>
