@@ -2,7 +2,7 @@ const { ApolloServer, gql, AuthenticationError } = require("apollo-server");
 const jwt = require("jsonwebtoken");
 const jwksClient = require("jwks-rsa");
 const { find, filter } = require("lodash");
-import { Author, Book } from "./store";
+import { Athlete, Segment } from "./store";
 
 const client = jwksClient({
   jwksUri:
@@ -23,68 +23,75 @@ const options = {
 };
 
 const typeDefs = gql`
-  type Author {
+  type Athlete {
     id: Int!
-    first_name: String!
-    last_name: String!
-    books: [Book]!
+    athlete_type: String!
+    activity_type: String!
+    segment: [Segment]!
   }
 
-  type Book {
+  type Segment {
     id: Int!
-    title: String!
-    cover_image_url: String!
-    average_rating: Float!
-    author: Author!
+    name: String!
+    elevation_profile: String!
+    average_grade: Float!
+    climb_length: Float!
+    lat_location: Float!
+    lon_location: Float!
+    athlete: Athlete!
   }
 
   type Query {
-    books: [Book!]!
-    book(id: Int!): Book!
-    author(id: Int!): Author!
+    segments: [Segment!]!
+    segment(id: Int!): Segment!
+    athlete(id: Int!): Athlete!
   }
 
   type Mutation {
-    addBook(
-      title: String!
-      cover_image_url: String!
-      average_rating: Float!
-      authorId: Int!
-    ): Book!
+    addSegment(
+      name: String!
+      elevation_profile: String!
+      average_grade: Float!
+      climb_length: Float!
+      lat_location: Float!
+      lon_location: Float!
+      athleteId: Int!
+    ): Segment!
   }
 `;
 
 const resolvers = {
   Query: {
-    books: () => Book.findAll(),
-    book: (_, args) => Book.find({ where: args }),
-    author: (_, args) => Author.find({ where: args }),
+    segments: () => Segment.findAll(),
+    segment: (_, args) => Segment.find({ where: args }),
+    athlete: (_, args) => Athlete.find({ where: args }),
   },
 
-  Author: {
-    books: (author) => author.getBooks(),
+  Athlete: {
+    segments: (Athlete) => Athlete.getSegments(),
   },
 
-  Book: {
-    author: (book) => book.getAuthor(),
+  Segment: {
+    Athlete: (segment) => segment.getAthlete(),
   },
 
   Mutation: {
-    addBook: async (
+    addSegment: async (
       _,
-      { title, cover_image_url, average_rating, authorId },
+      { name, elevation_profile, average_grade, climb_length, athleteId },
       { user }
     ) => {
       try {
         const email = await user; // catching the reject from the user promise.
-        const book = await Book.create({
-          title: title,
-          cover_image_url: cover_image_url,
-          average_rating: average_rating,
-          authorId: authorId,
+        const segment = await Segment.create({
+          name: name,
+          elevation_profile: elevation_profile,
+          average_grade: average_grade,
+          climb_length: climb_length,
+          athleteId: athleteId,
         });
 
-        return book;
+        return segment;
       } catch (e) {
         throw new AuthenticationError("You must be logged in to do this");
       }

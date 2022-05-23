@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Switch } from "react-router-dom";
+import NotFound from "./components/NotFound";
 import Nav from "./components/Nav";
 import Callback from "./components/Callback";
-import ListHills from "./components/ListHills";
-import HowTo from "./components/HowTo";
+import Welcome from "./components/Welcome";
+import Favorites from "./components/Favorites";
 import GuardedRoute from "./components/GuardedRoute";
 import "./App.css";
 import auth from "./Auth";
@@ -24,9 +25,14 @@ class App extends Component {
     return (
       <div>
         <Nav />
-        <Route exact path="/" component={ListHills} />
-        <GuardedRoute path="/howto" component={HowTo} />
-        <Route exact path="/callback" component={Callback} />
+        {/* switch replaces a failed page load with the next available successful load*/}
+        <Switch>
+          <Route exact path="/" component={Welcome} />
+          <Route path="/favorites" component={Favorites} />
+          <GuardedRoute exact path="/callback" component={Callback} />
+          {/* not found will load if valid routes fail */}
+          <Route component={NotFound} />
+        </Switch>
       </div>
     );
   }
