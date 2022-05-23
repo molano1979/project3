@@ -8,6 +8,7 @@ import auth from './Auth';
 
 import 'tachyons';
 import './index.css';
+import "./assets/scss/main.scss";
 
 import registerServiceWorker from './registerServiceWorker';
 
