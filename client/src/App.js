@@ -30,7 +30,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route path="/favorites" component={Favorites} />
-          <GuardedRoute exact path="/search" component={AddSegment} />
+          <GuardedRoute exact path="/add" component={AddSegment} />
           <GuardedRoute exact path="/callback" component={Callback} />
           {/* not found will load if valid routes fail */}
           <Route component={NotFound} />
