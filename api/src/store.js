@@ -7,21 +7,24 @@ const db = new Sequelize("favorites", null, null, {
   storage: "./favorites.sqlite",
 });
 
-const AuthorModel = db.define("author", {
-  first_name: { type: Sequelize.STRING },
-  last_name: { type: Sequelize.STRING },
+const AthleteModel = db.define("athlete", {
+  athlete_type: { type: Sequelize.STRING },
+  activity_type: { type: Sequelize.STRING },
 });
 
-const BookModel = db.define("book", {
-  title: { type: Sequelize.STRING },
-  cover_image_url: { type: Sequelize.STRING },
-  average_rating: { type: Sequelize.STRING },
+const SegmentModel = db.define("segment", {
+  name: { type: Sequelize.STRING },
+  elevation_profile: { type: Sequelize.STRING },
+  average_grade: { type: Sequelize.STRING },
+  climb_length: { type: Sequelize.FLOAT },
+  lat_location: { type: Sequelize.FLOAT },
+  lon_location: { type: Sequelize.FLOAT },
 });
 
-AuthorModel.hasMany(BookModel);
-BookModel.belongsTo(AuthorModel);
+AthleteModel.hasMany(SegmentModel);
+SegmentModel.belongsTo(AthleteModel);
 
-const Author = db.models.author;
-const Book = db.models.book;
+const Athlete = db.models.athlete;
+const Segment = db.models.segment;
 
-export { Author, Book };
+export { Athlete, Segment };
