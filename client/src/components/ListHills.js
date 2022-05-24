@@ -1,5 +1,5 @@
 import React from "react";
-import { Query } from "react-apollo";
+import { Query } from "@apollo/client";
 import { gql } from "apollo-boost";
 import "../App.css";
 
