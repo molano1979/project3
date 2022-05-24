@@ -2,7 +2,7 @@ const { ApolloServer, gql, AuthenticationError } = require("apollo-server");
 const jwt = require("jsonwebtoken");
 const jwksClient = require("jwks-rsa");
 const { find, filter } = require("lodash");
-import { Author, Book } from "./store";
+// import { Author, Book } from "./store";
 
 const client = jwksClient({
   jwksUri: "https://dev-gsexnrfp.us.auth0.com/.well-known/jwks.json",

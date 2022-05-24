@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "An app that connects to Strava via auth0 and google maps to get a list of the highest rated hills in the google maps viewport",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "jest index.js",
-    "start": "node server/server.js",
+    "start": "node api/src/server.js",
     "develop": "concurrently \"cd api/ && npm run watch\" \"cd client/ && npm start\"",
     "install": "cd api/ && npm install && cd ../client/ && npm install"
   },
@@ -19,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/molano1979/project3/issues"
   },
-  "homepage": "https://github.com/molano1979/project3#readme"
+  "homepage": "https://github.com/molano1979/project3#readme",
+  "dependencies": {
+    "concurrently": "^7.2.1"
+  }
 }
