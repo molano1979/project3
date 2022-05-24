@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
 import auth from "../Auth";
 // import auth, { UserPicture } from "../Auth";
 import "../App.css";
@@ -69,4 +69,4 @@ class Nav extends Component {
   }
 }
 
-export default withRouter(Nav);
+export default Router(Nav);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import {Router} from 'react-router-dom';
 import loading from '../loading.svg';
 import auth from '../Auth';
 
@@ -32,4 +32,4 @@ class Callback extends Component {
   }
 }
 
-export default withRouter(Callback);
+export default Router(Callback);

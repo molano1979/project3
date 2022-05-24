@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, withRouter } from "react-router-dom";
+import { Route, Router } from "react-router-dom";
 import Nav from "./components/Nav";
 import Callback from "./components/Callback";
 import ListHills from "./components/ListHills";
@@ -32,4 +32,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+export default Router(App);

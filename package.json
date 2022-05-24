@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/molano1979/project3#readme",
   "dependencies": {
-    "concurrently": "^7.2.1"
+    "concurrently": "^7.2.1",
+    "watch": "^1.0.2"
   }
 }
