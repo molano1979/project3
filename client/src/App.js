@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Route, withRouter, Switch } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Nav from "./components/Nav";
-import Callback from "./components/Callback";
 import Welcome from "./components/Welcome";
 import Favorites from "./components/Favorites";
+import Callback from "./components/Callback";
 import GuardedRoute from "./components/GuardedRoute";
 import "./App.css";
 import auth from "./Auth";
@@ -31,7 +31,7 @@ class App extends Component {
           <Route exact path="/" component={Welcome} />
           <Route path="/favorites" component={Favorites} />
           <GuardedRoute exact path="/maps" component={Maps} />
-          <GuardedRoute exact path="/callback" component={Callback} />
+          <Route exact path="/callback" component={Callback} />
           {/* not found will load if valid routes fail */}
           <Route component={NotFound} />
         </Switch>

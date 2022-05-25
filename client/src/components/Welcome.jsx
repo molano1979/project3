@@ -15,7 +15,7 @@ const Welcome = () => {
             Welcome!
           </h1>
           <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50">
-            This is where we welcome arrivals
+            Login for more functions
           </p>
 
           <div
