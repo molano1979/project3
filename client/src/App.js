@@ -29,7 +29,7 @@ class App extends Component {
         {/* switch replaces a failed page load with the next available successful load*/}
         <Switch>
           <Route exact path="/" component={Welcome} />
-          <Route path="/favorites" component={Favorites} />
+          <GuardedRoute path="/favorites" component={Favorites} />
           <GuardedRoute exact path="/maps" component={Maps} />
           <Route exact path="/callback" component={Callback} />
           {/* not found will load if valid routes fail */}
