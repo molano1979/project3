@@ -19,7 +19,6 @@ const Maps = () => {
         isOpen={isOpen}
         onRequestClose={toggleModalOne}
         contentLabel="search dialog"
-        className="custom-modal"
         overlayClassName="custom-overlay"
       >
         <div>
