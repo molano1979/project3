@@ -8,7 +8,7 @@ import Favorites from "./components/Favorites";
 import GuardedRoute from "./components/GuardedRoute";
 import "./App.css";
 import auth from "./Auth";
-import Maps from "./components/Maps";
+import Maps from "./components/maps/Maps";
 
 class App extends Component {
   async componentDidMount() {
