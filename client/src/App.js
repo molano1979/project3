@@ -8,7 +8,7 @@ import Favorites from "./components/Favorites";
 import GuardedRoute from "./components/GuardedRoute";
 import "./App.css";
 import auth from "./Auth";
-import AddSegment from "./components/AddSegment";
+import Maps from "./components/Maps";
 
 class App extends Component {
   async componentDidMount() {
@@ -30,7 +30,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Welcome} />
           <Route path="/favorites" component={Favorites} />
-          <GuardedRoute exact path="/add" component={AddSegment} />
+          <GuardedRoute exact path="/maps" component={Maps} />
           <GuardedRoute exact path="/callback" component={Callback} />
           {/* not found will load if valid routes fail */}
           <Route component={NotFound} />
