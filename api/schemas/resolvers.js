@@ -1,10 +1,8 @@
 const { AuthenticationError } = require('apollo-server');
-const { } = require('../models');
+const { User } = require('../models');
 const { signToken } = require('../utils/auth');
-const jwt = require("jsonwebtoken");
-const jwksClient = require("jwks-rsa");
-const { find, filter } = require("lodash");
-import { Athlete, Segment } from "./store";
+const { find, filter, _} = require("lodash");
+const { Athlete, Segment } = require('../src/store');
 
 const resolvers = {
   Query: {
@@ -14,7 +12,7 @@ const resolvers = {
   },
 
   Athlete: {
-    segments: (Athlete) => Athlete.getSegments(),
+    segments: async (Athlete) => Athlete.getSegments(),
   },
 
   Segment: {
@@ -22,6 +20,12 @@ const resolvers = {
   },
 
   Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
+
+      return {token, user};
+    },
     addSegment: async (
       _,
       { name, elevation_profile, average_grade, climb_length, athleteId },
