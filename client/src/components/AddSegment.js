@@ -27,7 +27,7 @@ const ADD_SEGMENT = gql`
 export default () => (
   <Mutation
     mutation={ADD_SEGMENT}
-    onCompleted={() => (window.location.href = "/")}
+    onCompleted={() => (window.location.href = "/add")}
   >
     {(addSegment, { data, loading, error }) => (
       <div>
@@ -38,14 +38,14 @@ export default () => (
               addSegment({
                 variables: {
                   name: this.name.value,
-                  elevation_profile: this.coverImage.value,
-                  average_grade: parseFloat(this.rating.value),
+                  elevation_profile: this.elevation_profile.value,
+                  average_grade: parseFloat(this.average_grade.value),
                   athleteId: parseInt(this.athleteId.value),
                 },
               });
 
               this.name.value = "";
-              this.coverImage.value = "";
+              this.elevation_profile.value = "";
               this.average_grade.value = "";
               this.athleteId.value = "";
             }}
@@ -66,7 +66,7 @@ export default () => (
                 type="url"
                 required
                 placeholder="Image Url"
-                ref={(node) => (this.coverImage = node)}
+                ref={(node) => (this.elevation_profile = node)}
               />
 
               <label> Average Grade: </label>
