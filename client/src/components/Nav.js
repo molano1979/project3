@@ -24,21 +24,22 @@ class Nav extends Component {
         </div>
         <ul className="nav navbar-nav">
           <li>
-            <Link to="/howto">How to</Link>
+            {auth.isAuthenticated() ? (
+              <Link to="/add">Search for segments</Link>
+            ) : (
+              ""
+            )}
           </li>
+
           <li>
             {auth.isAuthenticated() ? (
-              <Link to="/search">Search for hills</Link>
+              <Link to="/favorites">Favorites</Link>
             ) : (
               ""
             )}
           </li>
           <li>
-            {auth.isAuthenticated() ? (
-              <Link to="/popular">Top Segments</Link>
-            ) : (
-              ""
-            )}
+            <Link to="/howto">How To</Link>
           </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">

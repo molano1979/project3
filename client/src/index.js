@@ -1,20 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import App from "./App";
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
-import auth from './Auth';
+import auth from "./Auth";
 
-import 'tachyons';
-import './index.css';
+import "tachyons";
+import "./assets/index.css";
+import "./assets/main.scss";
 
-import registerServiceWorker from './registerServiceWorker';
+import registerServiceWorker from "./registerServiceWorker";
 
 const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
-  request: operation => {
-    operation.setContext(context => ({
+  request: (operation) => {
+    operation.setContext((context) => ({
       headers: {
         ...context.headers,
         authorization: auth.getIdToken(),
@@ -29,7 +30,7 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 registerServiceWorker();
