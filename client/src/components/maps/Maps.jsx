@@ -20,6 +20,7 @@ const Maps = () => {
         onRequestClose={toggleModalOne}
         contentLabel="search dialog"
         overlayClassName="custom-overlay"
+
       >
         <div>
           <button className="close-modal" onClick={toggleModalOne}>
