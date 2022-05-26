@@ -5,7 +5,7 @@ const typeDefs = gql`
     id: Int!
     athlete_type: String!
     activity_type: String!
-    segment: [Segment]!
+    segments: Segment
   }
 
   type Segment {
@@ -16,13 +16,18 @@ const typeDefs = gql`
     climb_length: Float!
     lat_location: Float!
     lon_location: Float!
-    athlete: Athlete!
+    athlete: Athlete
   }
 
   type Query {
     segments: [Segment!]!
     segment(id: Int!): Segment!
     athlete(id: Int!): Athlete!
+  }
+
+  type Auth {
+    token: ID
+    user: Athlete
   }
 
   type Mutation {
@@ -35,6 +40,7 @@ const typeDefs = gql`
       lon_location: Float!
       athleteId: Int!
     ): Segment!
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
   }
 `;
 
