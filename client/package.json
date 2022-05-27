@@ -23,7 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "watch": "nodemon -r esm src/server.js"
+    "watch": "react-scripts start"
   },
   "browserslist": {
     "production": [
