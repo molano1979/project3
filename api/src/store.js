@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const casual = require("casual");
-import _ from "lodash";
+const { _ } = require('lodash');
 
 const db = new Sequelize("favorites", null, null, {
   dialect: "sqlite",
@@ -27,4 +27,4 @@ SegmentModel.belongsTo(AthleteModel);
 const Athlete = db.models.athlete;
 const Segment = db.models.segment;
 
-export { Athlete, Segment };
+module.exports = { Athlete, Segment };
