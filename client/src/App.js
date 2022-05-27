@@ -9,6 +9,8 @@ import GuardedRoute from "./components/GuardedRoute";
 import "./App.css";
 import auth from "./Auth";
 import Maps from "./components/maps/Maps";
+import Intro from "./components/intro/Intro";
+
 
 class App extends Component {
   async componentDidMount() {
@@ -26,16 +28,21 @@ class App extends Component {
     return (
       <div>
         <Nav />
+
         {/* switch replaces a failed page load with the next available successful load*/}
         <Switch>
           <Route exact path="/" component={Welcome} />
+          <Route exact path="/intro" component={Intro} />
           <GuardedRoute path="/favorites" component={Favorites} />
           <GuardedRoute exact path="/maps" component={Maps} />
           <Route exact path="/callback" component={Callback} />
           {/* not found will load if valid routes fail */}
           <Route component={NotFound} />
+
         </Switch>
       </div>
+
+
     );
   }
 }
