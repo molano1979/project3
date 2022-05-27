@@ -39,7 +39,7 @@ class Nav extends Component {
             )}
           </li>
           <li>
-            <Link to="/howto">How To</Link>
+            <Link to="/intro">Intro</Link>
           </li>
         </ul>
         <ul className="nav navbar-nav navbar-right">

@@ -2,8 +2,9 @@ import React from 'react'
 import './intro.css'
 import { Link } from "react-router-dom";
 
-function Intro() {
-    return( 
+const Intro = () => {
+    return ( 
+     <>   
     <div className="intro">
         <p>
         Strava is the social network for the athletes.
@@ -54,8 +55,10 @@ function Intro() {
 
                 
     </div>
-    )   
-}
+
+    </>
+    );   
+};
 
 
             export default Intro;
