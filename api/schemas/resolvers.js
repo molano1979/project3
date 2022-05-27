@@ -16,7 +16,7 @@ const resolvers = {
   },
 
   Segment: {
-    athlete: (segment) => segment.getAthlete(),
+    Athlete: (segment) => segment.getAthlete(),
   },
 
   Mutation: {

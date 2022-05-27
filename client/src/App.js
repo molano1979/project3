@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Route, withRouter, Switch } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import Nav from "./components/Nav";
-import Callback from "./components/Callback";
 import Welcome from "./components/Welcome";
 import Favorites from "./components/Favorites";
+import Callback from "./components/Callback";
 import GuardedRoute from "./components/GuardedRoute";
 import "./App.css";
 import auth from "./Auth";
-import AddSegment from "./components/AddSegment";
+import Maps from "./components/maps/Maps";
 
 class App extends Component {
   async componentDidMount() {
@@ -29,9 +29,9 @@ class App extends Component {
         {/* switch replaces a failed page load with the next available successful load*/}
         <Switch>
           <Route exact path="/" component={Welcome} />
-          <Route path="/favorites" component={Favorites} />
-          <GuardedRoute exact path="/add" component={AddSegment} />
-          <GuardedRoute exact path="/callback" component={Callback} />
+          <GuardedRoute path="/favorites" component={Favorites} />
+          <GuardedRoute exact path="/maps" component={Maps} />
+          <Route exact path="/callback" component={Callback} />
           {/* not found will load if valid routes fail */}
           <Route component={NotFound} />
         </Switch>

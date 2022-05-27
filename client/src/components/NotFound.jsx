@@ -24,7 +24,7 @@ const NotFound = () => {
             data-aos-duration="1200"
             data-aos-delay="100"
           >
-            <Link to="/welcome">BACK TO HOME</Link>
+            <Link to="/">BACK TO HOME</Link>
           </div>
 
         </div>
