@@ -1,11 +1,8 @@
+
 import React from "react";
-import useScript from "./hooks/useScript";
 
 const ModalSearch = () => {
 
-  useScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRJvIbu1ZsBTN0-gPCt3y04HF98el2Yo&callback=initMap&v=weekly");
-  useScript("./scripts/google.js");
-  useScript('./scripts/strava.js');
 
   return (
     <>
@@ -26,7 +23,7 @@ const ModalSearch = () => {
         Maximum climb rating:<input type="number" id="maxClimb" value="1" min="1" max="3"></input>
           
           <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="submit"
+          <button type="button" className="btn btn-secondary" data-dismiss="modal" id="submit"
             onclick={() => hideFunction()}>Search and Close</button>
           </div>
           <hr className="separator mt-1" />

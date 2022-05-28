@@ -8,9 +8,8 @@ import Callback from "./components/Callback";
 import GuardedRoute from "./components/GuardedRoute";
 import "./App.css";
 import auth from "./Auth";
-import Maps from "./components/maps/Maps";
+import Search from "./components/maps/Search";
 import Intro from "./components/intro/Intro";
-
 
 class App extends Component {
   async componentDidMount() {
@@ -34,15 +33,12 @@ class App extends Component {
           <Route exact path="/" component={Welcome} />
           <Route exact path="/intro" component={Intro} />
           <GuardedRoute path="/favorites" component={Favorites} />
-          <GuardedRoute exact path="/maps" component={Maps} />
+          <GuardedRoute exact path="/search" component={Search} />
           <Route exact path="/callback" component={Callback} />
           {/* not found will load if valid routes fail */}
           <Route component={NotFound} />
-
         </Switch>
       </div>
-
-
     );
   }
 }
