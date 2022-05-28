@@ -1,8 +1,14 @@
 import React from "react";
+import useScript from "./hooks/useScript";
 
+const ModalSearch = () => {
 
-const index = () => {
+  useScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRJvIbu1ZsBTN0-gPCt3y04HF98el2Yo&callback=initMap&v=weekly");
+  useScript("./scripts/google.js");
+  useScript('./scripts/strava.js');
+
   return (
+    <>
     <section className="main-content ">
               <div className="col-12">
               <hr className="separator mt-1" />
@@ -10,14 +16,23 @@ const index = () => {
                   Search for segments
                 </h3>
               </div>
-              <div className="col-12 mt-1">
-                <a className="button" href="#">
-                  <button >Submit</button>
-                </a>
-              </div>
+          
+        Activity type:
+          <select id="activityType">
+            <option value="running">Running</option>
+            <option value="riding">Riding</option>
+        </select>
+        Minimum climb rating:<input type="number" id="minClimb" value="2" min="2" max="4"></input>
+        Maximum climb rating:<input type="number" id="maxClimb" value="1" min="1" max="3"></input>
+          
+          <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" id="submit"
+            onclick={() => hideFunction()}>Search and Close</button>
+          </div>
           <hr className="separator mt-1" />
-    </section>
+      </section>
+    </>
   );
 };
 
-export default index;
+export default ModalSearch;

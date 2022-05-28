@@ -6,6 +6,7 @@
     "scripts": {
       "test": "jest index.js",
       "start": "node api/src/server.js",
+      "host": "cd ./client && npm start",
       "develop": "concurrently \"cd api/ && npm run watch\" \"cd client/ && npm start\"",
       "install": "cd api/ && npm install --force && cd ../client/ && npm install --force"
     },

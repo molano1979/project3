@@ -53,7 +53,8 @@ const Intro = () => {
                         <li>HC (Hors Categorie) <div>{">"} greater than </div>  80000</li>
                     </ul>
 
-                
+                    <img src="https://support.strava.com/hc/article_attachments/360016064251/Climb_Categorization_1_-_Eng.png"
+              alt="Hawk Hill image example" class="exBig" style="display: block;"></img>
     </div>
 
     </>
