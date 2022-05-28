@@ -4,23 +4,26 @@
     "description": "An app that connects to Strava via auth0 and google maps to get a list of the highest rated hills in the google maps viewport",
     "main": "index.js",
     "scripts": {
-      "test": "jest index.js",
-      "start": "node api/src/server.js",
-      "develop": "concurrently \"cd api/ && npm run watch\" \"cd client/ && npm start\"",
-      "install": "cd api/ && npm install --force && cd ../client/ && npm install --force"
+        "test": "jest index.js",
+        "start": "node api/src/server.js",
+        "host": "cd ./client && npm start",
+        "develop": "concurrently \"cd api/ && npm run watch\" \"cd client/ && npm start\"",
+        "install": "cd api/ && npm install --force && cd ../client/ && npm install --force"
     },
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/molano1979/project3.git"
+        "type": "git",
+        "url": "git+https://github.com/molano1979/project3.git"
     },
     "author": "Danila Popov, Diana Cady, Ben Savage, George Pastushok",
     "license": "ISC",
     "bugs": {
-      "url": "https://github.com/molano1979/project3/issues"
+        "url": "https://github.com/molano1979/project3/issues"
     },
     "homepage": "https://github.com/molano1979/project3#readme",
     "dependencies": {
-      "concurrently": "^7.2.1",
-      "watch": "^1.0.2"
+        "concurrently": "^7.2.1",
+        "dotenv": "^16.0.1",
+        "google-maps-react": "^2.0.6",
+        "watch": "^1.0.2"
     }
-  }
+}
