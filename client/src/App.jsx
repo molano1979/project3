@@ -6,6 +6,7 @@ import Welcome from "./components/Welcome";
 import Favorites from "./components/Favorites";
 import Callback from "./components/Callback";
 import GuardedRoute from "./components/GuardedRoute";
+import coords from "./components/coords";
 import "./App.css";
 import auth from "./Auth";
 import Search from "./components/maps/Search";
@@ -37,6 +38,7 @@ class App extends Component {
           <GuardedRoute path="/favorites" component={Favorites} />
           <GuardedRoute exact path="/search" component={Search} />
           <Route exact path="/callback" component={Callback} />
+          <Route exact path="/coords" component={coords} />
           {/* not found will load if valid routes fail */}
           <Route component={NotFound} />
         </Switch>

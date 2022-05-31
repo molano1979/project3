@@ -5,31 +5,13 @@ import ModalSearch from "./ModalSearch";
 import closeIcon from "../../assets/img/close.png"
 
 const Maps = () => {
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
-  const [status, setStatus] = useState(null);
-
   // useScript('./scripts/strava.js');
 
   const [isOpen, setIsOpen] = useState(false);
   function toggleModalOne() {
     setIsOpen(!isOpen);
-    if (!navigator.geolocation) {
-      setStatus("Geolocation is not supported by your browser");
-    } else {
-      setStatus("Locating...");
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setStatus(null);
-          setLat(position.coords.latitude);
-          setLng(position.coords.longitude);
-        },
-        () => {
-          setStatus("Unable to retrieve your location");
-        }
-      );
-    }
   }
+
   return (
     <>
       <div className="align-items-right">
@@ -37,7 +19,9 @@ const Maps = () => {
           Enter search criteria
         </button>
       </div>
+
       <Modal
+        ariaHideApp={false}
         isOpen={isOpen}
         onRequestClose={toggleModalOne}
         contentLabel="search dialog"
@@ -45,14 +29,8 @@ const Maps = () => {
       >
         <div>
           <button className="close-modal" onClick={toggleModalOne}>
-            <img src={closeIcon} alt="close the modal"/>
-          </button>{" "}
-          Search around:{" "}
-          <div className="Welcome">
-            {status}
-            {lat && <list>Latitude: {lat}</list>}
-            {lng && <list> Longitude: {lng}</list>}
-          </div>
+            Close
+          </button>
           <div data-aos="fade-up" data-aos-duration="1200">
             <ModalSearch />
           </div>
