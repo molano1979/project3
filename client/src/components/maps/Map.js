@@ -31,7 +31,7 @@ function Map() {
       onClick={() => setActiveMarker(null)}
       mapContainerStyle={{
         width: "90vw",
-        height: "90vh",
+        height: "70vh",
         mapTypeId: "terrain",
         streetViewControl: false,
         showTooltip: false,
@@ -40,6 +40,7 @@ function Map() {
         stylers: [
           {
             color: "#ebe3cd",
+        
           },
         ],
         elementType: "labels.text.fill",
