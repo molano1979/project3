@@ -126,13 +126,8 @@ const ModalSearch = () => {
           <button type="submit" value="Submit" data-dismiss="modal">Search</button>
           </div>
         </form>
-        <div className="Welcome">
-       
-          {lat}<br />
-        {lng}
-      </div>
-        <p>max {ratingMax}, min {ratingMin}, activity {activity}</p>
-          <hr />
+        
+        <hr />
       </section>
     </>
   );
