@@ -1,5 +1,7 @@
 import React from "react";
+// query is defined but never called
 import { Query, Mutation } from "react-apollo";
+// redirect is defined but never called
 import { Redirect } from "react-router-dom";
 import { gql } from "apollo-boost";
 

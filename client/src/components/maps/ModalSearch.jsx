@@ -7,9 +7,9 @@ const ModalSearch = () => {
   return (
     <>
     <section className="main-content ">
-              <div className="col-12">
-              <hr className="separator mt-1" />
-                <h3 className="text-uppercase mb-0 ft-wt-600">
+              <div className="col-6">
+              <hr className="separator mt-5" />
+                <h3 className="text-uppercase mb-5 ft-wt-600">
                   Search for segments
                 </h3>
               </div>

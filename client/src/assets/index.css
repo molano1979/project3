@@ -1,9 +1,10 @@
 @import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400';
+@import 'https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 html {
@@ -11,4 +12,20 @@ html {
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+.navbar-brand {
+  font-weight: 900;
+  color: black;
+}
+
+.close-modal {
+  float: right;
+  background-color: white;
+  border: 0 none;
+}
+
+.close-modal img {
+  height: 40px;
+  width: 40px;
 }

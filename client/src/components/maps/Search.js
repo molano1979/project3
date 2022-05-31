@@ -2,6 +2,7 @@ import React, { useState, Component } from "react";
 import Modal from "react-modal";
 import Gaggle from "./Gaggle";
 import ModalSearch from "./ModalSearch";
+import closeIcon from "../../assets/img/close.png"
 
 const Maps = () => {
   const [lat, setLat] = useState(null);
@@ -44,7 +45,7 @@ const Maps = () => {
       >
         <div>
           <button className="close-modal" onClick={toggleModalOne}>
-            Close
+            <img src={closeIcon} alt="close the modal"/>
           </button>{" "}
           Search around:{" "}
           <div className="Welcome">
