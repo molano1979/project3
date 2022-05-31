@@ -5,29 +5,6 @@ import React, { useState, Component, useEffect } from "react";
 
 const ModalSearch = () => {
   //  using react mouting state to load a function
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
-  const [status, setStatus] = useState(null);
-  
-  function GetLocation() {
-    if (!navigator.geolocation) {
-      setStatus("Geolocation is not supported by your browser");
-    } else {
-      setStatus("Locating...");
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setStatus(null);
-          setLat(position.coords.latitude);
-          setLng(position.coords.longitude);
-          localStorage.setItem("centerLat", position.coords.latitude);
-          localStorage.setItem("centerLon", position.coords.longitude);
-        },
-        () => {
-          setStatus("Unable to retrieve your location");
-        }
-      );
-    }
-  }
   
   const [activity, setActivity] = useState("running");
   const [ratingMax, setMax] = useState("");
@@ -52,13 +29,11 @@ const ModalSearch = () => {
     const activityType = localStorage.getItem("activity");
     const minClimb = localStorage.getItem("ratingMin");
     const maxClimb = localStorage.getItem("ratingMax");
-    const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${bounds}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}`;
+    const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${bounds}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}&access_token=${current_token}`;
     // // /////////////////////////////////////////////////////
+    console.log(segmentsUrl)
       fetch(segmentsUrl, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ` + current_token,
-        },
+        method: "GET"
       })
         .then((response) => {
           if (response.ok) {
@@ -67,7 +42,9 @@ const ModalSearch = () => {
             throw response;
         })
         .then(data => {
-          console.log("Success: ", data);})
+          console.log("Success: ", data);
+          console.log("Found segments: ", )
+        })
         .catch(error => {
           console.error("Error fetching: ", error);})
     }

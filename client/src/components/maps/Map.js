@@ -11,7 +11,7 @@ const markers = [
   },
   {
     id: 2,
-    position: { lat: latOne + 0.1, lng: lonOne + 0.1 },
+    position: { lat: latOne + 0.5, lng: lonOne + 0.5 },
   },
 ];
 
