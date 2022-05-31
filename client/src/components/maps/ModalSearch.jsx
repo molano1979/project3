@@ -7,8 +7,8 @@ const ModalSearch = () => {
   //  using react mouting state to load a function
   
   const [activity, setActivity] = useState("running");
-  const [ratingMax, setMax] = useState("");
-  const [ratingMin, setMin] = useState("");
+  const [ratingMax, setMax] = useState("0");
+  const [ratingMin, setMin] = useState("5");
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,13 +17,14 @@ const ModalSearch = () => {
     localStorage.setItem("ratingMax", ratingMax);
     localStorage.setItem("ratingMin", ratingMin);
 
+
   const bounds = [
   JSON.parse(localStorage.getItem("sw_lat")),
   JSON.parse(localStorage.getItem("sw_lon")),
   JSON.parse(localStorage.getItem("ne_lat")),
-  JSON.parse(localStorage.getItem("sw_lon")),
+  JSON.parse(localStorage.getItem("ne_lon")),
   ];
-    
+    console.log("parse", bounds)
     const current_token = localStorage.getItem("new_token");
 
     const activityType = localStorage.getItem("activity");
@@ -32,9 +33,7 @@ const ModalSearch = () => {
     const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${bounds}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}&access_token=${current_token}`;
     // // /////////////////////////////////////////////////////
     console.log(segmentsUrl)
-      fetch(segmentsUrl, {
-        method: "GET"
-      })
+      fetch(segmentsUrl)
         .then((response) => {
           if (response.ok) {
             return response.json()
