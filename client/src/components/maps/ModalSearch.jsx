@@ -62,11 +62,9 @@ const ModalSearch = () => {
       })
         .then((response) => {
           if (response.ok) {
-            console.log(response);
             return response.json()
-            
           }
-          throw response;
+            throw response;
         })
         .then(data => {
           console.log("Success: ", data);})
@@ -126,13 +124,8 @@ const ModalSearch = () => {
           <button type="submit" value="Submit" data-dismiss="modal">Search</button>
           </div>
         </form>
-        <div className="Welcome">
-       
-          {lat}<br />
-        {lng}
-      </div>
-        <p>max {ratingMax}, min {ratingMin}, activity {activity}</p>
-          <hr />
+        
+        <hr />
       </section>
     </>
   );
