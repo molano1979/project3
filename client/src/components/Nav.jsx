@@ -4,6 +4,7 @@ import auth from '../Auth';
 // import auth, { UserPicture } from "../Auth";
 import '../App.css';
 import CAlogo from '../assets/img/logo.svg';
+import CAheader from '../assets/img/headerImg_dark.svg';
 
 class Nav extends Component {
   logout = () => {
@@ -13,7 +14,11 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-default nav-new">
+      <nav
+        className="navbar navbar-default nav-new"
+        style={{ backgroundImage: `url(${CAheader})` }}
+      >
+        {/* <img src={CAheader} alt="" /> */}
         <div className="navbar-header">
           <Link className="navbar-brand" to="/">
             <img src={CAlogo} alt="logo" />

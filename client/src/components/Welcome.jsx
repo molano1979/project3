@@ -1,24 +1,27 @@
+import { Link } from 'react-router-dom';
+import React from 'react';
 
-import { Link } from "react-router-dom";
-import React, { useState } from 'react';
-
-  const Welcome = () => {
-  
+function Welcome() {
   return (
-    <>
-    <div className="error_page">
+    <div className="welcome_page">
       <div
         className="hero bg-image"
         style={{
-          backgroundImage: `url(${process.env.PUBLIC_URL + "/img/mainbg@2x.png"})`,
+          backgroundImage: `url(${
+            `${process.env.PUBLIC_URL}/img/mainbg.svg`
+          })`,
         }}
       >
         <div className="content">
           <h1 data-aos="fade-up" data-aos-duration="1200">
-          <img id="logo-align" src= '../img/logo_dark@3x.png' alt="Example Hill" />
+            <img
+              id="logo-align"
+              src="../img/logo_dark.svg"
+              alt="Cardiac arrest app logo"
+            />
           </h1>
           <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50">
-            Login for more functions
+            Welcome!
           </p>
           <div
             className="button"
@@ -28,13 +31,9 @@ import React, { useState } from 'react';
           >
             <Link to="/search">Find new segments</Link>
           </div>
-
         </div>
       </div>
-
     </div>
-      
-    </>
   );
 }
 

@@ -29,21 +29,15 @@
 /* 8px seems to be the sweet middle on the bootstrap Navbar for center  */
 navbar-right { margin-right: 0px !important}
 .log {
-  margin: 8px 50px 0 0;
-  background-color: cadetblue;
-  border-color: black;
-  padding-left: 15px ;
+  margin: 17px 40px;
+  background-color: transparent;
+  border: 3px solid white;
+  padding: 7px 15px 7px 15px;
 }
 
 .log:hover {
   background-color: brown;
   transition: 0.4s;
-}
-
-.movie-title{
-  font-size: 19px;
-  font-family: Courier New;
-
 }
 
 .h1 {
@@ -59,4 +53,42 @@ navbar-right { margin-right: 0px !important}
 border-right: 20px;
 }
 
+.navbar-brand {
+  font-weight: 900;
+  color: white;
+  font-size: 2.5rem;
+  width: 300px;
+}
 
+.navbar {
+  background-size: cover;
+  width: 98vw;
+  height: 80px;
+  margin-bottom: 0px;
+  margin: auto;
+  margin-top: 1vh;
+  border: 0px none transparent;
+  color: white;
+}
+
+.navbar-right, li {
+  margin: auto;
+  padding: 0;
+}
+
+.navbar img {
+  display: inline-block;
+  max-height: 50px;
+  padding-right: 15px;
+}
+
+.close-modal {
+  float: right;
+  background-color: white;
+  border: 0 none;
+}
+
+.close-modal img {
+  height: 40px;
+  width: 40px;
+}

@@ -9,27 +9,8 @@ body {
 
 html {
   box-sizing: border-box;
+  line-height: 1;
 }
 *, *:before, *:after {
   box-sizing: inherit;
-}
-
-.navbar-brand {
-  font-weight: 900;
-  color: black;
-}
-
-.navbar img {
-  max-height: 50px;
-}
-
-.close-modal {
-  float: right;
-  background-color: white;
-  border: 0 none;
-}
-
-.close-modal img {
-  height: 40px;
-  width: 40px;
 }
