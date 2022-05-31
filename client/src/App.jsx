@@ -10,6 +10,8 @@ import "./App.css";
 import auth from "./Auth";
 import Search from "./components/maps/Search";
 import Intro from "./components/intro/Intro";
+import CAclose from './assets/img/close.svg'
+import CAlogo from './assets/img/logo.svg'
 
 class App extends Component {
   async componentDidMount() {

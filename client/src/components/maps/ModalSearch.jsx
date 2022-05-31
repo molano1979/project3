@@ -1,9 +1,6 @@
-
 import React from "react";
 
 const ModalSearch = () => {
-
-
   return (
     <>
     <section className="main-content ">

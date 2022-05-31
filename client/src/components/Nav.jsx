@@ -1,17 +1,14 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import auth from "../Auth";
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import auth from '../Auth';
 // import auth, { UserPicture } from "../Auth";
-import "../App.css";
+import '../App.css';
+import CAlogo from '../assets/img/logo.svg';
 
 class Nav extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   logout = () => {
     auth.logout();
-    this.props.history.replace("/");
+    this.props.history.replace('/');
   };
 
   render() {
@@ -19,6 +16,7 @@ class Nav extends Component {
       <nav className="navbar navbar-default nav-new">
         <div className="navbar-header">
           <Link className="navbar-brand" to="/">
+            <img src={CAlogo} alt="logo" />
             Cardiac Arrest
           </Link>
         </div>
@@ -27,7 +25,7 @@ class Nav extends Component {
             {auth.isAuthenticated() ? (
               <Link to="/search">Search for segments</Link>
             ) : (
-              ""
+              ''
             )}
           </li>
 
@@ -35,7 +33,7 @@ class Nav extends Component {
             {auth.isAuthenticated() ? (
               <Link to="/favorites">Favorites</Link>
             ) : (
-              ""
+              ''
             )}
           </li>
           <li>
@@ -50,17 +48,23 @@ class Nav extends Component {
               " "
             )}
           </li> */}
-        
+
           <li>
             {auth.isAuthenticated() ? (
               <button
+                type="button"
                 className="btn btn-danger log"
                 onClick={() => this.logout()}
               >
-                Log out{" "}
+                Log out
+                {' '}
               </button>
             ) : (
-              <button className="btn btn-info log" onClick={() => auth.login()}>
+              <button
+                type="button"
+                className="btn btn-info log"
+                onClick={() => auth.login()}
+              >
                 Log In
               </button>
             )}

@@ -19,6 +19,10 @@ html {
   color: black;
 }
 
+.navbar img {
+  max-height: 50px;
+}
+
 .close-modal {
   float: right;
   background-color: white;
