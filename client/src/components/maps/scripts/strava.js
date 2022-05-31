@@ -108,8 +108,3 @@ function showFunction() {
     y.style.display = "none";
   }
 }
-
-const [isOpen, setIsOpen] = useState(false);
-function toggleModalOne() {
-  setIsOpen(!isOpen);
-}

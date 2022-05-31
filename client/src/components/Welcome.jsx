@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 
   const Welcome = () => {
   
+    if (loading) return "Loading..."
+    if (error) return "Loading..."
   return (
     <>
     <div className="error_page">

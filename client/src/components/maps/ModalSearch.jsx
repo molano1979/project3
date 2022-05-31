@@ -1,8 +1,133 @@
 
-import React from "react";
+import React, { useState, Component, useEffect } from "react";
+import { default as strava, Strava } from 'strava-v3';
+
+
 
 const ModalSearch = () => {
+  //  using react mouting state to load a function
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+  const [status, setStatus] = useState(null);
+  
+  function GetLocation() {
+    if (!navigator.geolocation) {
+      setStatus("Geolocation is not supported by your browser");
+    } else {
+      setStatus("Locating...");
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setStatus(null);
+          setLat(position.coords.latitude);
+          setLng(position.coords.longitude);
+          localStorage.setItem("centerLat", position.coords.latitude);
+          localStorage.setItem("centerLon", position.coords.longitude);
+        },
+        () => {
+          setStatus("Unable to retrieve your location");
+        }
+      );
+    }
+  }
+  
+  const [activity, setActivity] = useState("running");
+  const [ratingMax, setMax] = useState("");
+  const [ratingMin, setMin] = useState("");
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const search = { activity, ratingMax, ratingMin }
+    localStorage.setItem("activity", activity);
+    localStorage.setItem("ratingMax", ratingMax);
+    localStorage.setItem("ratingMin", ratingMin);
 
+  const lastBounds = {
+  south: JSON.parse(localStorage.getItem("sw_lat")).south,
+  west: JSON.parse(localStorage.getItem("sw_lon")).west,
+  north: JSON.parse(localStorage.getItem("ne_lat")).north,
+  east: JSON.parse(localStorage.getItem("sw_lon")).east,
+};
+       ///////////////////////////////
+    const strava_oauth = defaultClient.authentications['strava_oauth'];
+    const current_token = strava_oauth.accessToken = localStorage.getItem("new_token");
+    const api = new Strava.SegmentsApi()
+    const bounds = [
+      lastBounds.south,
+      lastBounds.west,
+      lastBounds.north,
+      lastBounds.east,
+    ];
+    
+    const opts = { 
+        'activityType': activity, // {String} Desired activity type.
+        'minCat': ratingMin, // {Integer} The minimum climbing category.
+        'maxCat': ratingMax // {Integer} The maximum climbing category.
+      };
+      callback = function(error, data, response) {
+        if (error) {
+          console.error(error);
+        } else {
+          console.log('API called successfully. Returned data: ' + data);
+        }
+      };
+    api.exploreSegments(bounds, opts, callback);
+    
+    //////////////////////////////////
+    // const authLink = "https://www.strava.com/oauth/authorize";
+  
+
+
+    // const activityType = localStorage.getItem("activity");
+    // const minClimb = localStorage.getItem("ratingMin");
+    // const maxClimb = localStorage.getItem("ratingMax");
+    // const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${bounds}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}?access_token=${current_token}`;
+    // // /////////////////////////////////////////////////////
+    //   fetch(segmentsUrl, {
+    //     method: "GET",
+    //     headers: {
+    //       Authorization: `Bearer ` + current_token,
+    //     },
+    //   })
+    //     .then((response) => {
+    //       if (response.ok) {
+    //         console.log(response);
+    //         return response.json()
+            
+    //       }
+    //       throw response;
+    //     })
+    //     .then(data => {
+    //       console.log("Success: ", data);})
+    //     .catch(error => {
+    //       console.error("Error fetching: ", error);})
+    }
+
+    /////////////////////////////////
+    // console.log("Success:", data);
+    // let segmentList = [];
+    // for (let i = 0; i < data.segments.length; i++) {
+    //   let currentSegment = data.segments[i];
+    //   let name = currentSegment.name;
+    //   let avgGrade = currentSegment.avg_grade;
+    //   let climbL = currentSegment.distance;
+    //   let profileC = currentSegment.elevation_profile;
+    //   let lats = currentSegment.start_latlng[0];
+    //   let lons = currentSegment.start_latlng[1];
+    //   let hillsCard = `
+    //         <div className="col-sm this" >
+    //         <div className="card">
+    //         <div className="card-body">
+    //         <p><strong>${name}</strong></p>
+    //         <div><img src=${profileC} /></div>
+    //         <p>Length of climb: ${climbL} feet.</p>
+    //         <p>Average grade: ${avgGrade}%</p>
+    //         <p><a href="https://www.google.com/maps/search/?api=1&query=${lats}%2C${lons}">Starting location</a></p></div>
+    //         </div>
+    //         </div>`;
+    //   segmentList.push(hillsCard);
+    // }
+
+  
 
   return (
     <>
@@ -11,22 +136,31 @@ const ModalSearch = () => {
               <hr className="separator mt-1" />
                 <h3 className="text-uppercase mb-0 ft-wt-600">
                   Search for segments
-                </h3>
+          </h3>
+          <hr />
+          {" "}{" "}
               </div>
-          
-        Activity type:
-          <select id="activityType">
+        <form onSubmit={handleSubmit} >
+          <label>Activity type</label><br />
+          Make your selection: <select value={activity} onChange={(e) => setActivity(e.target.value)} required>
             <option value="running">Running</option>
             <option value="riding">Riding</option>
-        </select>
-        Minimum climb rating:<input type="number" id="minClimb" value="2" min="2" max="4"></input>
-        Maximum climb rating:<input type="number" id="maxClimb" value="1" min="1" max="3"></input>
-          
-          <div class="modal-footer">
-          <button type="button" className="btn btn-secondary" data-dismiss="modal" id="submit"
-            onclick={() => hideFunction()}>Search and Close</button>
+          </select><p />
+          <label>Climb Ratings</label><br />
+          Minimum : <input type="number" value={ratingMin} onChange={(e) => setMin(e.target.value)} min="2" max="4" required></input><p />
+          Maximum : <input type="number" value={ratingMax} onChange={(e) => setMax(e.target.value)} min="1" max="3" required></input>
+          <p />
+          <div className="modal-footer">
+          <button type="submit" value="Submit" data-dismiss="modal">Search</button>
           </div>
-          <hr className="separator mt-1" />
+        </form>
+        <div className="Welcome">
+       
+          {lat}<br />
+        {lng}
+      </div>
+        <p>max {ratingMax}, min {ratingMin}, activity {activity}</p>
+          <hr />
       </section>
     </>
   );
