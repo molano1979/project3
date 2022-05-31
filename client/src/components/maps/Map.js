@@ -45,8 +45,6 @@ function Map() {
 
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
-          console.log("Response status", xhr.status);
-
           let arrayResponse = JSON.parse(xhr.responseText);
           let expiration = arrayResponse.expires_in;
           let minutes = Math.floor(expiration / 60);
