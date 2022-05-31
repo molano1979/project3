@@ -15,7 +15,7 @@ const Maps = () => {
   return (
     <>
       <div className="align-items-right">
-        <button className="button" onClick={toggleModalOne}>
+        <button id="search-criteria" className="button" onClick={toggleModalOne}>
           Enter search criteria
         </button>
       </div>

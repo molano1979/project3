@@ -1,33 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleMap, InfoWindow, Marker } from '@react-google-maps/api';
 
-constructor(props) {
-  super(props);
-  this.state = {
-    latitude: null,
-    longitude: null,
-    userAddress: null
-  };
-  this.getLocation = this.getLocation.bind(this);
-  this.getLocation = this.getCoordinates.bind(this);
-};
-
-getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(this.getCoordinates);
-  } else {
-    alert('geolocation not supported on this browser')
-  }
-}
-
-getCoordinates(position) {
-  console.log(position.coords.latitude);
-  this.setState({
-    latitude: position.coords.latitude,
-    longitude: position.coords.longitude
-  })
-}
-
 const latOne = JSON.parse(localStorage.getItem('centerLat')) || 47.7081431;
 const lonOne = JSON.parse(localStorage.getItem('centerLon')) || -122.2066806;
 
@@ -378,8 +351,8 @@ function Map() {
       onLoad={handleOnLoad}
       onClick={() => setActiveMarker(null)}
       mapContainerStyle={{
-        width: '90vw',
-        height: '90vh',
+        width: '100vw',
+        height: '100vh',
       }}
     >
       {markers.map(({ id, position }) => (
