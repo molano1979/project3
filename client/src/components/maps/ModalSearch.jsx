@@ -62,11 +62,9 @@ const ModalSearch = () => {
       })
         .then((response) => {
           if (response.ok) {
-            console.log(response);
             return response.json()
-            
           }
-          throw response;
+            throw response;
         })
         .then(data => {
           console.log("Success: ", data);})
