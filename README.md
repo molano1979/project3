@@ -12,7 +12,6 @@ An athlete wants to find difficult hills to run or ride in different areas.
 ```
 
 
-![front](./public/img/front.png)
 
 
 
