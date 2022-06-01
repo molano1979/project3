@@ -6,34 +6,12 @@ import CAmodal from "../../assets/img/modal_bg.svg"
 
 const ModalSearch = () => {
   //  using react mouting state to load a function
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
-  const [status, setStatus] = useState(null);
-  
-  function GetLocation() {
-    if (!navigator.geolocation) {
-      setStatus("Geolocation is not supported by your browser");
-    } else {
-      setStatus("Locating...");
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setStatus(null);
-          setLat(position.coords.latitude);
-          setLng(position.coords.longitude);
-          localStorage.setItem("centerLat", position.coords.latitude);
-          localStorage.setItem("centerLon", position.coords.longitude);
-        },
-        () => {
-          setStatus("Unable to retrieve your location");
-        }
-      );
-    }
-  }
   
   const [activity, setActivity] = useState("running");
-  const [ratingMax, setMax] = useState("");
-  const [ratingMin, setMin] = useState("");
-  
+  const [ratingMax, setMax] = useState("0");
+  const [ratingMin, setMin] = useState("5");
+  const [listNames] = useState("")
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const search = { activity, ratingMax, ratingMin }
@@ -41,38 +19,44 @@ const ModalSearch = () => {
     localStorage.setItem("ratingMax", ratingMax);
     localStorage.setItem("ratingMin", ratingMin);
 
+
   const bounds = [
   JSON.parse(localStorage.getItem("sw_lat")),
   JSON.parse(localStorage.getItem("sw_lon")),
   JSON.parse(localStorage.getItem("ne_lat")),
-  JSON.parse(localStorage.getItem("sw_lon")),
+  JSON.parse(localStorage.getItem("ne_lon")),
   ];
-    
+    console.log("parse", bounds)
     const current_token = localStorage.getItem("new_token");
 
     const activityType = localStorage.getItem("activity");
     const minClimb = localStorage.getItem("ratingMin");
     const maxClimb = localStorage.getItem("ratingMax");
-    const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${bounds}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}`;
+    const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${bounds}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}&access_token=${current_token}`;
     // // /////////////////////////////////////////////////////
-      fetch(segmentsUrl, {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ` + current_token,
-        },
+    console.log(segmentsUrl)
+    fetch(segmentsUrl)
+      .then((response) => {
+        if (response.ok) {
+          return response.json()
+        }
+        throw response;
       })
-        .then((response) => {
-          if (response.ok) {
-            return response.json()
-          }
-            throw response;
+      .then(data => {
+        console.log("Success: ", data);
+        //////
+        const names = data.segments[0].name;
+        const profilesPNG = data.segments[0].elevation_profile;
+        const climbL = data.segments[0].distance;
+        const grade = data.segments[0].avg_grade
+        const lats = data.segments[0].start_latlng[0];
+        const lons = data.segments[0].start_latlng[1]
+        console.log(names, profilesPNG, grade, climbL)
+        ///////
         })
-        .then(data => {
-          console.log("Success: ", data);})
         .catch(error => {
           console.error("Error fetching: ", error);})
     }
-
     /////////////////////////////////
     // console.log("Success:", data);
     // let segmentList = [];
@@ -95,10 +79,6 @@ const ModalSearch = () => {
     //         <p><a href="https://www.google.com/maps/search/?api=1&query=${lats}%2C${lons}">Starting location</a></p></div>
     //         </div>
     //         </div>`;
-    //   segmentList.push(hillsCard);
-    // }
-
-  
 
   return (
     <>
@@ -108,8 +88,7 @@ const ModalSearch = () => {
                   Search for segments
           </h3>
           <hr />
-          {" "}{" "}
-              </div>
+             </div>
         <form onSubmit={handleSubmit} >
           <label>Activity type</label><br />
           <select value={activity} onChange={(e) => setActivity(e.target.value)} required>

@@ -1,7 +1,30 @@
-import { Link } from 'react-router-dom';
-import React from 'react';
+import { Link } from "react-router-dom";
+import React, { useState } from 'react';
 
-function Welcome() {
+  const Welcome = () => {
+    const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+  const [status, setStatus] = useState(null);
+  
+  function GetLocation() {
+    if (!navigator.geolocation) {
+      setStatus("Geolocation is not supported by your browser");
+    } else {
+      setStatus("Locating...");
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setStatus(null);
+          setLat(position.coords.latitude);
+          setLng(position.coords.longitude);
+          localStorage.setItem("centerLat", position.coords.latitude);
+          localStorage.setItem("centerLon", position.coords.longitude);
+        },
+        () => {
+          setStatus("Unable to retrieve your location");
+        }
+      );
+    }
+  }
   return (
     <div className="welcome_page">
       <div
@@ -12,7 +35,7 @@ function Welcome() {
           })`,
         }}
       >
-        <div className="content">
+        <div className="content" onLoad={GetLocation}>
           <h1 data-aos="fade-up" data-aos-duration="1200">
             <img
               id="logo-align"
