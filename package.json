@@ -4,10 +4,10 @@
     "description": "An app that connects to Strava via auth0 and google maps to get a list of the highest rated hills in the google maps viewport",
     "main": "index.js",
     "scripts": {
-        "test": "jest index.js",
-        "start": "node api/src/server.js",
+        "test": "jest client/src/index.js",
+        "startold": "node api/src/server.js",
         "host": "cd ./client && npm start",
-        "develop": "concurrently \"cd api/ && npm run watch\" \"cd client/ && npm start\"",
+        "start": "concurrently \"cd api/ && npm run watch\" \"cd client/ && npm start\"",
         "install": "cd api/ && npm install --force && cd ../client/ && npm install --force"
     },
     "repository": {
