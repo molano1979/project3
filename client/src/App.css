@@ -46,18 +46,21 @@ navbar-right {
 
 .log {
   margin: 17px 40px;
-  background-color: transparent;
+  background-color: var(--main-bg);
   border: 3px solid var(--main-primary);
   border-radius: 0px;
   padding: 7px 15px 7px 15px;
   color: var(--main-primary);
   font-weight: 900;
+  transition: 500ms;
 }
 
-/* .log:hover { */
-  /* background-color: brown; */
-  /* transition: 0.4s; */
-/* } */
+.log:hover {
+  color: var(--main-primary);
+  background-color: var(--main-tertiary);
+  border: 3px solid var(--main-primary);
+  transition: 0.4s;
+}
 
 .h1 {
   color: black;
@@ -98,6 +101,10 @@ navbar-right {
   transition: color 500ms;
 }
 
+.navbar-brand a li {
+  padding-top: 15px;
+}
+
 a {
   color: var(--main-primary);
   font-weight: 700;
@@ -114,25 +121,6 @@ li {
   display: inline-block;
   max-height: 50px;
   padding-right: 15px;
-}
-
-button {
-  border: 3px solid var(--main-primary);
-  border-radius: 0px;
-  background-color: var(--main-bg);
-  padding: 15px;
-  font-weight: 900;
-  font-size: 16px;
-  color: var(--main-primary);
-}
-
-button:hover {
-  border: 3px solid var(--main-primary);
-  border-radius: 0px;
-  background-color: var(--main-tertiary);
-  font-weight: 900;
-  color: var(--main-secondary);
-  transition: 500ms;
 }
 
 .eactModal__Content .ReactModal__Content--after-open {
@@ -153,6 +141,34 @@ button:hover {
   float: right;
   z-index: 1;
   margin: 100px 0px 0 20px ;
+  transition: 500ms;
+}
+#search-criteria:hover {
+  border: 3px solid var(--main-primary);
+  border-radius: 0px;
+  background-color: var(--main-tertiary);
+  font-weight: 900;
+  color: var(--main-secondary);
+  transition: 500ms;
+}
+
+button {
+  border: 3px solid var(--main-primary);
+  border-radius: 0px;
+  background-color: var(--main-bg);
+  padding: 15px;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--main-primary);
+}
+
+button:hover {
+  border: 3px solid var(--main-primary);
+  border-radius: 0px;
+  background-color: var(--main-tertiary);
+  font-weight: 900;
+  color: var(--main-secondary);
+  transition: 500ms;
 }
 
 .close-modal, .close-modal:hover {
