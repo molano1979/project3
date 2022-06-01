@@ -16,7 +16,7 @@ class Nav extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-default">
+      <nav className="navbar navbar-default nav-new">
         <div className="navbar-header">
           <Link className="navbar-brand" to="/">
             Cardiac Arrest
@@ -25,7 +25,7 @@ class Nav extends Component {
         <ul className="nav navbar-nav">
           <li>
             {auth.isAuthenticated() ? (
-              <Link to="/maps">Search for segments</Link>
+              <Link to="/search">Search for segments</Link>
             ) : (
               ""
             )}
@@ -50,6 +50,7 @@ class Nav extends Component {
               " "
             )}
           </li> */}
+        
           <li>
             {auth.isAuthenticated() ? (
               <button

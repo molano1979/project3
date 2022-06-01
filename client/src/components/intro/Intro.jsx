@@ -52,8 +52,10 @@ const Intro = () => {
                         <li>Cat 1 <div>{">"} greater than </div>  64000</li>
                         <li>HC (Hors Categorie) <div>{">"} greater than </div>  80000</li>
                     </ul>
+                   
 
-                
+                    <img src={process.env.PUBLIC_URL + "https://support.strava.com/hc/article_attachments/360016064251/Climb_Categorization_1_-_Eng.png"} alt="Example Hill" />
+              
     </div>
 
     </>
