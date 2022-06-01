@@ -12,7 +12,7 @@ An athlete wants to find difficult hills to run or ride in different areas.
 ```
 
 ![](https://github.com/molano1979/project3/blob/main/public/img/front.png)
-
+![](https://github.com/molano1979/project3/blob/main/public/img/landingpge.png?raw=true)
 
 ### Based on google and strava APIs:
 
