@@ -11,8 +11,7 @@ Link to Heroku: https://cardiac-arrest-3.herokuapp.com/
 An athlete wants to find difficult hills to run or ride in different areas.
 ```
 
-
-
+![](https://github.com/molano1979/project3/blob/main/public/img/front.png)
 
 
 ### Based on google and strava APIs:
