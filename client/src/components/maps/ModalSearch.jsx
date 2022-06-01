@@ -1,39 +1,30 @@
 import React, { useState, Component, useEffect } from "react";
-// import { default as strava, Strava } from 'strava-v3';
-
 
 
 const ModalSearch = () => {
-  //  using react mouting state to load a function
-  
   const [activity, setActivity] = useState("running");
   const [ratingMax, setMax] = useState("0");
   const [ratingMin, setMin] = useState("5");
   const [listNames] = useState("")
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const search = { activity, ratingMax, ratingMin }
     localStorage.setItem("activity", activity);
     localStorage.setItem("ratingMax", ratingMax);
     localStorage.setItem("ratingMin", ratingMin);
-
-
+  }
   const bounds = [
   JSON.parse(localStorage.getItem("sw_lat")),
   JSON.parse(localStorage.getItem("sw_lon")),
   JSON.parse(localStorage.getItem("ne_lat")),
   JSON.parse(localStorage.getItem("ne_lon")),
   ];
-    console.log("parse", bounds)
     const current_token = localStorage.getItem("new_token");
-
     const activityType = localStorage.getItem("activity");
     const minClimb = localStorage.getItem("ratingMin");
     const maxClimb = localStorage.getItem("ratingMax");
     const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${bounds}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}&access_token=${current_token}`;
-    // // /////////////////////////////////////////////////////
-    console.log(segmentsUrl)
     fetch(segmentsUrl)
       .then((response) => {
         if (response.ok) {
@@ -43,42 +34,18 @@ const ModalSearch = () => {
       })
       .then(data => {
         console.log("Success: ", data);
-        //////
-        const names = data.segments[0].name;
-        const profilesPNG = data.segments[0].elevation_profile;
-        const climbL = data.segments[0].distance;
-        const grade = data.segments[0].avg_grade
-        const lats = data.segments[0].start_latlng[0];
-        const lons = data.segments[0].start_latlng[1]
-        console.log(names, profilesPNG, grade, climbL)
-        ///////
-        })
+        localStorage.setItem("data_seg", data.segments);
+        const names = data.segments.name
+        const profilesPNG = data.segments.elevation_profile;
+        const climbL = data.segments.distance;
+        const grade = data.segments.avg_grade
+        const lats = data.segments.start_latlng[0];
+        const lons = data.segments.start_latlng[1]
+      })
         .catch(error => {
-          console.error("Error fetching: ", error);})
-    }
-    /////////////////////////////////
-    // console.log("Success:", data);
-    // let segmentList = [];
-    // for (let i = 0; i < data.segments.length; i++) {
-    //   let currentSegment = data.segments[i];
-    //   let name = currentSegment.name;
-    //   let avgGrade = currentSegment.avg_grade;
-    //   let climbL = currentSegment.distance;
-    //   let profileC = currentSegment.elevation_profile;
-    //   let lats = currentSegment.start_latlng[0];
-    //   let lons = currentSegment.start_latlng[1];
-    //   let hillsCard = `
-    //         <div className="col-sm this" >
-    //         <div className="card">
-    //         <div className="card-body">
-    //         <p><strong>${name}</strong></p>
-    //         <div><img src=${profileC} /></div>
-    //         <p>Length of climb: ${climbL} feet.</p>
-    //         <p>Average grade: ${avgGrade}%</p>
-    //         <p><a href="https://www.google.com/maps/search/?api=1&query=${lats}%2C${lons}">Starting location</a></p></div>
-    //         </div>
-    //         </div>`;
-
+          console.error("Error fetching: ", error);
+      })
+               
   return (
     <>
     <section className="main-content ">
@@ -100,14 +67,12 @@ const ModalSearch = () => {
           Maximum : <input type="number" value={ratingMax} onChange={(e) => setMax(e.target.value)} min="0" max="4"  required></input>
           <p />
           <div className="modal-footer">
-          <button type="submit" value="Submit" data-dismiss="modal">Search</button>
+          <button type="submit" value="submit" data-dismiss="modal">Search</button>
           </div>
         </form>
         
         <hr />
-        {/* ////////////////// */}
 
-        {/* ////////////////// */}
       </section>
     </>
   );

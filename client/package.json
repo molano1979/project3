@@ -8,6 +8,7 @@
     "apollo-boost": "^0.4.9",
     "auth0": "^2.40.0",
     "auth0-js": "^9.19.0",
+    "dom": "^0.0.3",
     "dotenv": "^16.0.1",
     "env": "^0.0.2",
     "google-maps-react": "^2.0.6",
