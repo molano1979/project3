@@ -7,11 +7,16 @@ GitHub: https://molano1979.github.io/project3/
 
 Link to Heroku: https://cardiac-arrest-3.herokuapp.com/
 
-
-![landingpage](./public/img/landingpage.png)
 ```
 An athlete wants to find difficult hills to run or ride in different areas.
 ```
+
+
+![front](./public/img/front.png)
+![landingpage](./public/img/landingpge.png)
+![intro](./public/img/intro.png)
+![map](./public/img/map.png)
+
 
 ### Based on google and strava APIs:
 
