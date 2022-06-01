@@ -9,8 +9,8 @@ import GuardedRoute from "./components/GuardedRoute";
 import auth from "./Auth";
 import Search from "./components/maps/Search";
 import Intro from "./components/intro/Intro";
-import CAclose from './assets/img/close.svg'
-import CAlogo from './assets/img/logo.svg'
+// import CAclose from './assets/img/close.svg'
+// import CAlogo from './assets/img/logo.svg'
 import "./App.css";
 
 class App extends Component {

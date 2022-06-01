@@ -18,7 +18,6 @@ class Nav extends Component {
         className="navbar navbar-default nav-new"
         style={{ backgroundImage: `url(${CAheader})` }}
       >
-        {/* <img src={CAheader} alt="" /> */}
         <div className="navbar-header">
           <Link className="navbar-brand" to="/">
             <img src={CAlogo} alt="logo" />

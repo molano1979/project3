@@ -2,6 +2,7 @@
 :root {
   --main-primary: black;
   --main-secondary: #222;
+  --main-tertiary: orange;
   --main-bg: transparent;
   --main-bg-solid: #ffffff;
 }
@@ -53,10 +54,10 @@ navbar-right {
   font-weight: 900;
 }
 
-.log:hover {
-  background-color: brown;
-  transition: 0.4s;
-}
+/* .log:hover { */
+  /* background-color: brown; */
+  /* transition: 0.4s; */
+/* } */
 
 .h1 {
   color: black;
@@ -72,9 +73,6 @@ navbar-right {
 }
 
 .navbar-brand {
-  font-weight: 900;
-  color: var(--main-primary);
-  font-size: 2.5rem;
   width: 300px;
 }
 
@@ -94,12 +92,15 @@ navbar-right {
 
 .navbar-default,
 .navbar-brand {
+  font-weight: 900;
   color: var(--main-primary);
+  font-size: 2.5rem;
   transition: color 500ms;
 }
 
-.navbar-nav > li > a {
+a {
   color: var(--main-primary);
+  font-weight: 700;
   font-size: 16px;
 }
 
@@ -125,6 +126,27 @@ button {
   color: var(--main-primary);
 }
 
+button:hover {
+  border: 3px solid var(--main-primary);
+  border-radius: 0px;
+  background-color: var(--main-tertiary);
+  font-weight: 900;
+  color: var(--main-secondary);
+  transition: 500ms;
+}
+
+.eactModal__Content .ReactModal__Content--after-open {
+  background-image: url(../src/assets/img/modal.svg);
+}
+
+.ReactModal__Content {
+  background-image: url(../src/assets/img/modal.svg);
+  margin: auto;
+  width: 50vw;
+  min-height: fit-content;
+  max-height:80vh;
+}
+
 #search-criteria {
   position: absolute;
   background-color: var(--main-bg-solid);
@@ -133,13 +155,61 @@ button {
   margin: 100px 0px 0 20px ;
 }
 
-.close-modal {
+.close-modal, .close-modal:hover {
   float: right;
-  background-color: var(--main-primary);
+  background-color: var(--main-bg);
   border: 0 none;
+  padding-top: 0;
+  padding-right: 0;
 }
 
 .close-modal img {
   height: 40px;
   width: 40px;
+  opacity: 100%;
+  transition: 200ms;
+}
+
+.close-modal:hover {
+  opacity: 50%;
+  transition: 200ms;
+}
+
+form {
+  padding: 5px;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--main-primary);
+}
+
+h3 {
+  font-size: 2em;
+  font-weight: 900;
+  color: var(--main-primary);
+  text-align: left;
+}
+
+select, input {
+  border: 3px solid var(--main-primary);
+  border-radius: 0px;
+  background-color: var(--main-bg);
+  padding: 5px;
+  margin: auto;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--main-primary);
+  width: 90%;
+}
+
+label, option {
+  padding: 5px;
+  margin: auto;
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--main-primary);
+  text-align: right;
+}
+
+hr {
+  border: 2px solid var(--main-primary);
 }
