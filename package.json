@@ -25,5 +25,7 @@
         "dotenv": "^16.0.1",
         "google-maps-react": "^2.0.6",
         "watch": "^1.0.2"
+    },
+    "devDependencies": {
     }
 }
