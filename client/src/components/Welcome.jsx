@@ -42,7 +42,14 @@ import React, { useState } from 'react';
               src="../img/logo_dark.svg"
               alt="Cardiac arrest app logo"
             />
+                   {auth.isAuthenticated() ? (
+              ""
+            ) : (
+              "Login for more functions"
+            )}
           </h1>
+
+          
           <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50">
             Welcome!
           </p>
