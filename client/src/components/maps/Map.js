@@ -64,7 +64,7 @@ function Map() {
     }
     ///
     const bounds = new google.maps.LatLngBounds();
-    const customStyle = [mapCustomStyle];
+    const customStyle = mapCustomStyle;
     map.setOptions({
       // zoom: 12,
       mapTypeId: 'terrain',
@@ -95,8 +95,8 @@ function Map() {
       onLoad={handleOnLoad}
       onClick={() => setActiveMarker(null)}
       mapContainerStyle={{
-        width: '90vw',
-        height: '90vh',
+        width: '100vw',
+        height: '100vh',
       }}
     >
       {markers.map(({ id, position }) => (

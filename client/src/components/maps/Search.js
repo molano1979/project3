@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import Gaggle from "./Gaggle";
 import ModalSearch from "./ModalSearch";
 import closeIcon from "../../assets/img/close.png"
+import CAmodal from "../../assets/img/modal_bg.svg";
 
 const Maps = () => {
   // useScript('./scripts/strava.js');
@@ -15,7 +16,7 @@ const Maps = () => {
   return (
     <>
       <div className="align-items-right">
-        <button className="button" onClick={toggleModalOne}>
+        <button id="search-criteria" className="button" onClick={toggleModalOne}>
           Enter search criteria
         </button>
       </div>
@@ -29,7 +30,7 @@ const Maps = () => {
       >
         <div>
           <button className="close-modal" onClick={toggleModalOne}>
-            Close
+            <img src={closeIcon} alt="close window" />
           </button>
           <div data-aos="fade-up" data-aos-duration="1200">
             <ModalSearch />

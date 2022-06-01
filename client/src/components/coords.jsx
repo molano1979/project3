@@ -46,7 +46,7 @@ function handleLocationError(error) {
     default:
       alert("an error occured")
       break;
-  }
+  };
 }
 
 export default coords;

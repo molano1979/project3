@@ -3,5 +3,21 @@
     min-height: 100vh;
     padding:100px 50px 50px 50px;
     color:black;
+    background-color: lightslategray;
 }
 
+ /* ================ MEDIA QUERIES (MEDIUM DEVICES) ================= */
+ @media screen and (max-width: 1024px) {
+    intro {
+      height: 68vh;
+    }
+  }
+
+    /* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
+    @media screen and (max-width: 600px) {
+        intro {
+          height: 100vh;
+          
+        }
+
+    }
