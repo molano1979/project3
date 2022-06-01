@@ -3,10 +3,9 @@
 
 ## Description
 
-Published: https://github.com/molano1979/react-portfolio-1
+GitHub: https://molano1979.github.io/project3/
 
-Link to Heroku 
-
+Link to Heroku: https://cardiac-arrest-3.herokuapp.com/
 
 
 ![landingpage](./public/img/landingpage.png)
