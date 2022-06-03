@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
+import auth from "../Auth";
 
-  const Welcome = () => {
-    const [lat, setLat] = useState(null);
+const Welcome = () => {
+  const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [status, setStatus] = useState(null);
-  
+
   function GetLocation() {
     if (!navigator.geolocation) {
       setStatus("Geolocation is not supported by your browser");
@@ -30,9 +31,8 @@ import React, { useState } from 'react';
       <div
         className="hero bg-image"
         style={{
-          backgroundImage: `url(${
-            `${process.env.PUBLIC_URL}/img/mainbg.svg`
-          })`,
+          backgroundImage: `url(${`${process.env.PUBLIC_URL}/img/mainbg.svg`
+            })`,
         }}
       >
         <div className="content" onLoad={GetLocation}>
@@ -42,25 +42,24 @@ import React, { useState } from 'react';
               src="../img/logo_dark.svg"
               alt="Cardiac arrest app logo"
             />
-                   {auth.isAuthenticated() ? (
-              ""
+          </h1>
+
+
+          <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50">
+            {auth.isAuthenticated() ? (
+              "Welcome!"
             ) : (
               "Login for more functions"
             )}
-          </h1>
-
-          
-          <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50">
-            Welcome!
           </p>
-            <Link to="/search">
-              <button
-                type="button"
-                className="btn btn-info log"
-              >
+          <Link to="/search">
+            <button
+              type="button"
+              className="btn btn-info log"
+            >
               Find new segments
-              </button>
-            </Link>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

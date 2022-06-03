@@ -1,13 +1,19 @@
 import auth0 from "auth0-js";
 
+// const returnURI = 'http://localhost:3000/' 
+// const callbackURI = 'http://localhost:3000/callback'
+
+const returnURI = 'https://cardiac-arrest-3.herokuapp.com/' 
+const callbackURI = 'https://cardiac-arrest-3.herokuapp.com/callback'
+
 class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
       domain: process.env.REACT_APP_AUTH0_DOMAIN,
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
-      redirectUri: "http://localhost:3000/callback",
+      redirectUri: callbackURI,
       audience: process.env.REACT_APP_AUTH0_AUDIENCE,
-      responseType: "token id_token",
+      responseType: "token",
       scope: "openid email",
     });
 
@@ -49,7 +55,7 @@ class Auth {
   logout() {
     localStorage.setItem(this.authFlag, JSON.stringify(false));
     this.auth0.logout({
-      returnTo: "http://localhost:3000",
+      returnTo: returnURI,
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
     });
   }
