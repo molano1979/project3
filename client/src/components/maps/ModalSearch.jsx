@@ -56,6 +56,7 @@ const ModalSearch = () => {
       .catch((error) => {
         console.error("Error fetching: ", error);
       });
+      this.setState({ showModal: false });
   };
   /////////////////////////////////
   // console.log("Success:", data);
