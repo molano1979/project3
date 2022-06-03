@@ -229,3 +229,7 @@ label, option {
 hr {
   border: 2px solid var(--main-primary);
 }
+
+.spinner {
+  width: 50px;
+}

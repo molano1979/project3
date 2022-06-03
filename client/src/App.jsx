@@ -20,8 +20,8 @@ class App extends Component {
       await auth.silentAuth();
       this.forceUpdate();
     } catch (err) {
-      if (err.error === "login_required") return;
-      console.log(err.error);
+      if (err) return;
+      console.log(err);
     }
   }
 
