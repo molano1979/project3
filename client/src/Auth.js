@@ -1,10 +1,10 @@
 import auth0 from "auth0-js";
 
-const returnURI = 'http://localhost:3000/' 
-const callbackURI = 'http://localhost:3000/callback'
+// const returnURI = 'http://localhost:3000/' 
+// const callbackURI = 'http://localhost:3000/callback'
 
-// const returnURI = 'https://cardiac-arrest-3.herokuapp.com/' 
-// const callbackURI = 'https://cardiac-arrest-3.herokuapp.com/callback'
+const returnURI = 'https://cardiac-arrest-3.herokuapp.com/' 
+const callbackURI = 'https://cardiac-arrest-3.herokuapp.com/callback'
 
 class Auth {
   constructor() {
