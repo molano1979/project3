@@ -2,6 +2,7 @@ import React, { useState, Component } from "react";
 import Modal from "react-modal";
 import Gaggle from "./Gaggle";
 import ModalSearch from "./ModalSearch";
+import segmentList from "../segmentList";
 import closeIcon from "../../assets/img/close.png"
 import CAmodal from "../../assets/img/modal_bg.svg";
 
@@ -37,7 +38,7 @@ const Maps = () => {
           </div>
         </div>
       </Modal>
-
+      <segmentList />
       <Gaggle />
     </>
   );
