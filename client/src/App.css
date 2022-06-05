@@ -124,15 +124,16 @@ li {
 }
 
 .eactModal__Content .ReactModal__Content--after-open {
-  background-image: url(../src/assets/img/modal.svg);
+  background-image: url(../src/assets/img/modal_bg.svg);
 }
 
 .ReactModal__Content {
-  background-image: url(../src/assets/img/modal.svg);
+  background-image: url(../src/assets/img/modal_bg.svg);
   margin: auto;
   width: 50vw;
   min-height: fit-content;
   max-height:80vh;
+  border: 3px solid var(--main-primary);
 }
 
 #search-criteria {

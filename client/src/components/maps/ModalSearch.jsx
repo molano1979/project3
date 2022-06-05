@@ -1,4 +1,5 @@
 import React, { useState, Component, useEffect } from "react";
+import { fetchReq } from "./stravaApi";
 // import { default as strava, Strava } from 'strava-v3';
 import CAmodal from "../../assets/img/modal_bg.svg";
 
@@ -23,7 +24,7 @@ const ModalSearch = () => {
       JSON.parse(localStorage.getItem("ne_lat")),
       JSON.parse(localStorage.getItem("ne_lon")),
     ];
-    console.log("parse", bounds);
+    // console.log("parse", bounds);
     const current_token = localStorage.getItem("new_token");
 
     const activityType = localStorage.getItem("activity");
@@ -31,32 +32,8 @@ const ModalSearch = () => {
     const maxClimb = localStorage.getItem("ratingMax");
     const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${bounds}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}&access_token=${current_token}`;
     // // /////////////////////////////////////////////////////
-    console.log(segmentsUrl);
-    fetch(segmentsUrl)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((data) => {
-        console.log("Success: ", data);
-        //////
-        for (let i = 0; i > data.segments.length; i++) {
-          const names = data.segments[i].name;
-          const profilesPNG = data.segments[i].elevation_profile;
-          const climbL = data.segments[i].distance;
-          const grade = data.segments[i].avg_grade;
-          const lats = data.segments[i].start_latlng[0];
-          const lons = data.segments[i].start_latlng[1];
-          console.log(names, profilesPNG, grade, climbL);
-        }
-        ///////
-      })
-      .catch((error) => {
-        console.error("Error fetching: ", error);
-      });
-      this.setState({ showModal: false });
+    // console.log(segmentsUrl);
+    fetchReq(segmentsUrl);
   };
   /////////////////////////////////
   // console.log("Success:", data);

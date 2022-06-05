@@ -9,6 +9,7 @@ import GuardedRoute from "./components/GuardedRoute";
 import auth from "./Auth";
 import Search from "./components/maps/Search";
 import Intro from "./components/intro/Intro";
+import Poly from './components/maps/stravaApp'
 // import CAclose from './assets/img/close.svg'
 // import CAlogo from './assets/img/logo.svg'
 import "./App.css";
@@ -38,6 +39,7 @@ class App extends Component {
           <GuardedRoute exact path="/search" component={Search} /> */}
           <Route path="/favorites" component={Favorites} />
           <Route exact path="/search" component={Search} />
+          <Route exact path="/poly" component={Poly} />
           <Route exact path="/callback" component={Callback} />
           {/* not found will load if valid routes fail */}
           <Route component={NotFound} />

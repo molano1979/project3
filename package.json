@@ -21,11 +21,10 @@
     },
     "homepage": "https://github.com/molano1979/project3#readme",
     "dependencies": {
+        "@mapbox/polyline": "^1.1.1",
         "concurrently": "^7.2.1",
         "dotenv": "^16.0.1",
         "google-maps-react": "^2.0.6",
         "watch": "^1.0.2"
-    },
-    "devDependencies": {
     }
 }
