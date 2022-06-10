@@ -1,4 +1,10 @@
 import React, { useState, Component, useEffect } from "react";
+<<<<<<< HEAD
+=======
+// import { default as strava, Strava } from 'strava-v3';
+import CAmodal from "../../assets/img/modal_bg.svg"
+
+>>>>>>> dadc4d3f4b4821f8e9be83fd1b0f55e23f069eb3
 
 
 const ModalSearch = () => {
@@ -48,31 +54,33 @@ const ModalSearch = () => {
                
   return (
     <>
-    <section className="main-content ">
-              <div className="col-12">
-              <hr className="separator mt-1" />
-                <h3 className="text-uppercase mb-0 ft-wt-600">
+    <section className="main-content">
+              <div className="col-6">
+                <h3 className="text-uppercase mb-5 ft-wt-600">
                   Search for segments
           </h3>
           <hr />
              </div>
         <form onSubmit={handleSubmit} >
           <label>Activity type</label><br />
-          Make your selection: <select value={activity} onChange={(e) => setActivity(e.target.value)} required>
+          <select value={activity} onChange={(e) => setActivity(e.target.value)} required>
             <option value="running">Running</option>
             <option value="riding">Riding</option>
           </select><p />
           <label>Climb Ratings</label><br />
-          Minimum : <input type="number" value={ratingMin} onChange={(e) => setMin(e.target.value)} min="1" max="5" required></input><p />
-          Maximum : <input type="number" value={ratingMax} onChange={(e) => setMax(e.target.value)} min="0" max="4"  required></input>
+          Minimum : <br /><input type="number" value={ratingMin} onChange={(e) => setMin(e.target.value)} min="1" max="5" required></input><p />
+          Maximum : <br /><input type="number" value={ratingMax} onChange={(e) => setMax(e.target.value)} min="0" max="4"  required></input>
           <p />
           <div className="modal-footer">
           <button type="submit" value="submit" data-dismiss="modal">Search</button>
           </div>
         </form>
+<<<<<<< HEAD
         
         <hr />
 
+=======
+>>>>>>> dadc4d3f4b4821f8e9be83fd1b0f55e23f069eb3
       </section>
     </>
   );

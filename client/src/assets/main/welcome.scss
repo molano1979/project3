@@ -1,0 +1,59 @@
+.welcome_page {
+  h1,
+  h2 {
+    font-weight: 900;
+    font-size: 125px;
+    line-height: 1;
+    letter-spacing: 5px;
+    color: rgb(27, 25, 25);
+    @media screen and (max-width: 768px) {
+      font-size: 80px;
+    }
+  }
+  .hero {
+    width: 100%;
+    height: calc(100vh);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .bg-image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+  .content {
+    p {
+      color: #000;
+      margin-bottom: 35px;
+      margin-top: 15px;
+      font-size: 48px;
+      font-weight: 900;
+      @media screen and (max-width: 768px) {
+        margin-bottom: 30px;
+      }
+    }
+    .button {
+      height: 25px;
+      text-align: center;
+      padding-right: 15px;
+      border: 2px solid #444;
+      &:hover {
+        background: #444;
+        a {
+          color: #fff;
+        }
+        &::before {
+          display: none;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        transition: 0.4s;
+      }
+    }
+  }
+}

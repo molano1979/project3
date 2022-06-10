@@ -27,7 +27,7 @@ class Callback extends Component {
     return (
       <div style={style}>
         <Nav />
-        <img src={loading} alt="loading" />
+        <img id="spinner" src={loading} alt="loading" />
       </div>
     );
   }
