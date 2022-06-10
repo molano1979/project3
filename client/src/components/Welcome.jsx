@@ -2,6 +2,8 @@
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 
+import auth from "../Auth";
+
   const Welcome = () => {
     const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
@@ -38,10 +40,14 @@ import React, { useState } from 'react';
         <div className="content" onLoad={GetLocation}>
           <h1 data-aos="fade-up" data-aos-duration="1200">
           <img id="logo-align" src= '../img/logo_dark@3x.png' alt="Example Hill" />
-          </h1>
-          <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="50">
-            Login for more functions
-          </p>
+            </h1>
+            
+            {auth.isAuthenticated() ? (
+              ""
+            ) : (
+              "Login for more functions"
+            )}
+          
           <div
             className="button"
             data-aos="fade-up"
